@@ -1,0 +1,42 @@
+﻿@model EmpleadoModel
+@{
+    ViewData["Title"] = "Crear";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Crear Empleado
+    </div>
+    <div class="card-body">
+        <form asp-action="Crear" asp-controller="Empleado" method="post">
+            <div class="mb-3">
+                <label class="form-label" required>Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Celular</label>
+                <input asp-for="Celular" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input asp-for="Correo" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <select asp-for="Cargo" class="form-select">
+                    <option selected>Seleccionar Cargo</option>
+                    <option value="Cajero">Cajero</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Limpieza">Limpieza</option>
+                    <option value="Atención Publico">Atención Publico</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha de Alta</label>
+                <input asp-for="FechaAlta" type="date" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Empleado</button>
+            <a asp-action="Index" asp-controller="Empleado" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

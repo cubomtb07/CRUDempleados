@@ -1,0 +1,42 @@
+﻿@model List<EmpleadoModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista Empleados
+    </div>
+    <div class="card-body">
+        <a asp-action="Crear" asp-controller="Empleado" class="btn btn-outline-primary">Crear Nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Celular</th>
+                    <th>Correo</th>
+                    <th>Cargo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Celular</td>
+                        <td>@item.Correo</td>
+                        <td>@item.Cargo</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="Empleado" class="btn btn-success btn-sm" asp-route-id="@item.EmpleadoID">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger btn-sm" asp-route-id="@item.EmpleadoID">Eliminar</a>
+                            <a asp-action="ObtenerPorID" asp-controller="Empleado" class="btn btn-primary btn-sm" asp-route-id="@item.EmpleadoID">Ver</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -8,24 +8,24 @@ namespace CRUDempleados.Controllers
     public class EmpleadoController : Controller
     {
         EmpleadoData _EmpleadoData = new EmpleadoData();
-        public IActionResult Listar()
+        public IActionResult Index()
         {
             var oLista = _EmpleadoData.Listar();
             return View(oLista);
         }
-        public IActionResult Guardar()
+        public IActionResult Crear()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Guardar(EmpleadoModel oEmpleado)
+        public IActionResult Crear(EmpleadoModel oEmpleado)
         {
             if (ModelState.IsValid)
             {
                 var respuesta = _EmpleadoData.Crear(oEmpleado);
                 if (respuesta)
-                    return RedirectToAction("Listar");
+                    return RedirectToAction("Index");
                 else
                     return View();
             }
@@ -45,7 +45,7 @@ namespace CRUDempleados.Controllers
         {
             var respuesta = _EmpleadoData.Actualizar(oEmpleado);
             if (respuesta)
-                return RedirectToAction("Listar");
+                return RedirectToAction("Index");
             else
                 return View();
         }
@@ -77,7 +77,7 @@ namespace CRUDempleados.Controllers
         {
             var respuesta = _EmpleadoData.Eliminar(oEmpleado.EmpleadoID);
             if (respuesta)
-                return RedirectToAction("Listar");
+                return RedirectToAction("Index");
             else
                 return View();
         }

@@ -1,0 +1,25 @@
+﻿@model EmpleadoModel
+
+@{
+    ViewData["Title"] = "ObtenerPorID";
+}
+
+<h2>Detalles del Empleado</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Nombre:</dt>
+        <dd>@Model.Nombre</dd>
+        <dt>Celular:</dt>
+        <dd>@Model.Celular</dd>
+        <dt>Correo:</dt>
+        <dd>@Model.Correo</dd>
+        <dt>Cargo:</dt>
+        <dd>@Model.Cargo</dd>
+        <dt>Fecha Alta:</dt>
+        <dd>@Model.FechaAlta.ToShortDateString()</dd>
+    </dl>
+    <a asp-action="Editar" asp-controller="Empleado" class="btn btn-success btn-sm" asp-route-id="@Model.EmpleadoID">Editar</a>
+    <a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger btn-sm" asp-route-id="@Model.EmpleadoID">Eliminar</a>
+    <a asp-action="Index" asp-controller="Empleado" class="btn btn-warning">Volver a la lista</a>
+</div>
